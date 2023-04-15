@@ -65,11 +65,28 @@ export default NextAuth({
         if (!token?.expiration) return null;
 
         if (actualDateInSeconds > token.expiration) return null;
-
-        console.log('Usuário logado:', token);
       }
 
       return token;
+    },
+    async session({ session, token }) {
+      if (
+        !token?.jwt ||
+        !token?.id ||
+        !token?.expiration ||
+        !token?.email ||
+        !token?.name
+      )
+        return null;
+
+      session.user = {
+        id: token.id,
+        name: token.name,
+        email: token.email,
+        jwt: token.jwt,
+      };
+
+      return session;
     },
   },
 });
