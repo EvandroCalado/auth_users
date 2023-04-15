@@ -1,4 +1,4 @@
-import Button, { ButtonProps } from '.';
+import Button, { ButtonProps } from './Button';
 import { Meta, StoryFn } from '@storybook/react';
 import { VpnKey } from '@styled-icons/material-outlined';
 

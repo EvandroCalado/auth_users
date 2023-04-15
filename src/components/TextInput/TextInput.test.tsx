@@ -1,4 +1,4 @@
-import TextInput from '.';
+import TextInput from './TextInput';
 import { fireEvent, screen } from '@testing-library/react';
 import { renderTheme } from '../../styles/render-theme';
 import { vi } from 'vitest';

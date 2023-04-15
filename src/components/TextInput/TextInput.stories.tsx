@@ -1,5 +1,5 @@
 import { AlternateEmail } from '@styled-icons/material-outlined';
-import TextInput, { TextInputProps } from '.';
+import TextInput, { TextInputProps } from './TextInput';
 import { Meta, StoryFn } from '@storybook/react';
 
 export default {

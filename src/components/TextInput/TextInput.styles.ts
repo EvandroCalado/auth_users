@@ -1,5 +1,5 @@
 import styled, { DefaultTheme, css } from 'styled-components';
-import { TextInputProps } from '.';
+import { TextInputProps } from './TextInput';
 
 const onInputError = (theme: DefaultTheme, errorMessage: string) => css`
   border: ${theme.spacings.xxtiny} solid ${theme.colors.warning};

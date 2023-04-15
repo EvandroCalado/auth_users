@@ -2,6 +2,7 @@ import { theme } from '../styles/theme';
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
 import { Open_Sans, Montserrat } from '@next/font/google';
+import { SessionProvider } from 'next-auth/react';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -15,10 +16,12 @@ const montserrat = Montserrat({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={theme}>
-      <div className={`${openSans.className} ${montserrat.className}`}>
-        <Component {...pageProps} />
-      </div>
-    </ThemeProvider>
+    <SessionProvider session={pageProps.session}>
+      <ThemeProvider theme={theme}>
+        <div className={`${openSans.className} ${montserrat.className}`}>
+          <Component {...pageProps} />
+        </div>
+      </ThemeProvider>
+    </SessionProvider>
   );
 }

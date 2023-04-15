@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { ButtonProps } from '.';
+import { ButtonProps } from './Button';
 
 export const Button = styled.button<Pick<ButtonProps, 'color'>>`
   ${({ theme, color }) => css`

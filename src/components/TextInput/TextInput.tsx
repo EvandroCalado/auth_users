@@ -1,5 +1,5 @@
 import { InputHTMLAttributes, useRef } from 'react';
-import * as Styled from './styles';
+import * as Styled from './TextInput.styles';
 
 export type TextInputProps = {
   label: string;

@@ -1,4 +1,4 @@
-import Button from '.';
+import Button from './Button';
 import { fireEvent } from '@testing-library/react';
 import { renderTheme } from '../../styles/render-theme';
 import { VpnKey } from '@styled-icons/material-outlined';
