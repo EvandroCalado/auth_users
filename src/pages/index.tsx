@@ -1,13 +1,14 @@
 import { GetServerSideProps } from 'next';
-import { useSession } from 'next-auth/react';
+// import { useSession } from 'next-auth/react';
 
 const Index = () => {
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
 
   return (
-    <h3>
-      <pre>{JSON.stringify(session, null, 2)}</pre>
-    </h3>
+    <div>
+      <h2>Index</h2>
+      {/* <pre>{JSON.stringify(session)}</pre> */}
+    </div>
   );
 };
 
