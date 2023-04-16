@@ -24,6 +24,9 @@ const onInputError = (theme: DefaultTheme, errorMessage: string) => css`
 export const Wrapper = styled.div`
   ${({ theme }) => css`
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: ${theme.spacings.large};
   `}
 `;
@@ -31,6 +34,9 @@ export const Wrapper = styled.div`
 export const InputWrapper = styled.div<Pick<TextInputProps, 'errorMessage'>>`
   ${({ theme, errorMessage }) => css`
     position: relative;
+    width: 100%;
+    max-width: 80rem;
+
     > svg {
       position: absolute;
       top: 50%;
@@ -66,8 +72,8 @@ type StyledInputType = Pick<TextInputProps, 'errorMessage' | 'as' | 'type'>;
 
 export const Input = styled.input<StyledInputType>`
   ${({ theme, errorMessage, as }) => css`
-  display: flex;
-  width: 100%;
+    display: flex;
+    width: 100%;
     border: 1px solid ${theme.colors.gray3};
     width: 100%;
     height: 100%;

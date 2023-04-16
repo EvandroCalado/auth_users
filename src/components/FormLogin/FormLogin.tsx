@@ -18,8 +18,6 @@ const FormLogin = ({ errorMessage, onLogin }: FormLoginProps) => {
     setLoading(true);
     event.preventDefault();
 
-    await new Promise((r) => setTimeout(r, 5000));
-
     if (onLogin) {
       await onLogin(email, password);
     }

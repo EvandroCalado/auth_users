@@ -6,13 +6,30 @@ export default {
   title: 'Button',
   component: Button,
   args: {
-    children: 'Texto do Botão',
-    icon: <VpnKey />,
+    children: 'Botão',
   },
 } as Meta;
 
-export const Template: StoryFn<ButtonProps> = (args) => (
+export const WithoutIcon: StoryFn<ButtonProps> = (args) => (
   <div>
     <Button {...args} />
+  </div>
+);
+
+export const WithIcon: StoryFn<ButtonProps> = (args) => (
+  <div>
+    <Button {...args} icon={<VpnKey />} />
+  </div>
+);
+
+export const SecondaryColor: StoryFn<ButtonProps> = (args) => (
+  <div>
+    <Button {...args} color="secondary" icon={<VpnKey />} />
+  </div>
+);
+
+export const Disabled: StoryFn<ButtonProps> = (args) => (
+  <div>
+    <Button {...args} icon={<VpnKey />} disabled={true} />
   </div>
 );

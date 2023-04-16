@@ -6,7 +6,7 @@ export type ButtonProps = {
   disabled?: boolean;
   onClick?: () => void;
   icon?: React.ReactNode;
-  color: 'primary' | 'secondary';
+  color?: 'primary' | 'secondary';
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = ({

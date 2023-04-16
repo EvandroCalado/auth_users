@@ -61,7 +61,6 @@ export const OnError: StoryFn<TextInputProps> = (args) => {
 OnError.args = {
   errorMessage: 'Something went wrong, Sorry!',
   value: 'Something you typed',
-  icon: <AlternateEmail />,
 };
 
 export const WithText: StoryFn<TextInputProps> = (args) => {

@@ -4,15 +4,16 @@ import { ButtonProps } from './Button';
 export const Button = styled.button<Pick<ButtonProps, 'color'>>`
   ${({ theme, color }) => css`
     background-color: ${theme.colors[color]};
-    border: none;
     color: ${theme.colors.white};
+    font-size: ${theme.font.sizes.small};
+    border: none;
     padding: ${theme.spacings.xsmall} ${theme.spacings.medium};
-    cursor: pointer;
     border-radius: ${theme.spacings.tiny};
     transition: ${theme.transitions.fast};
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 
     &:focus {
       outline: none;
