@@ -11,11 +11,9 @@ export default NextAuth({
   providers: [
     CredentialsProvider({
       name: 'Credentials',
-      credentials: {
-        identifier: { label: 'Email', type: 'text', placeholder: 'Email' },
-        password: { label: 'Password', type: 'password' },
-      },
+      credentials: {},
       async authorize(credentials) {
+        if (!credentials) return null;
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_API_URL}${endpoints.login}`,
           {

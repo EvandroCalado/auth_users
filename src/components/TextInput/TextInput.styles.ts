@@ -1,13 +1,15 @@
-import styled, { DefaultTheme, css } from 'styled-components';
+import styled, { css, DefaultTheme } from 'styled-components';
 import { TextInputProps } from './TextInput';
 
 const onInputError = (theme: DefaultTheme, errorMessage: string) => css`
   border: ${theme.spacings.xxtiny} solid ${theme.colors.warning};
   box-shadow: 0 0 ${theme.spacings.xtiny} 0 ${theme.colors.warning};
+
   &:focus {
     border: ${theme.spacings.xxtiny} solid ${theme.colors.warning};
     box-shadow: 0 0 ${theme.spacings.xtiny} 0 ${theme.colors.warning};
   }
+
   ${
     !!errorMessage &&
     css`
@@ -64,6 +66,8 @@ type StyledInputType = Pick<TextInputProps, 'errorMessage' | 'as' | 'type'>;
 
 export const Input = styled.input<StyledInputType>`
   ${({ theme, errorMessage, as }) => css`
+  display: flex;
+  width: 100%;
     border: 1px solid ${theme.colors.gray3};
     width: 100%;
     height: 100%;
@@ -91,7 +95,7 @@ export const Input = styled.input<StyledInputType>`
       + ${Label} {
       top: 0;
       transform: translate(0, -50%);
-      font-size: ${theme.font.sizes.xsmall};
+      font-size: ${theme.font.sizes.small};
       color: ${theme.colors.white};
       background: ${theme.colors.primary};
       filter: none;
