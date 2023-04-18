@@ -19,7 +19,6 @@
     "postinstall": "npm run prepare"
   },
   "dependencies": {
-    "@next/font": "^13.3.0",
     "@styled-icons/material-outlined": "^10.47.0",
     "@types/node": "18.15.11",
     "@types/react": "^18.0.35",
@@ -51,6 +50,7 @@
     "@typescript-eslint/parser": "^5.58.0",
     "@vitejs/plugin-react": "^3.1.0",
     "@vitest/coverage-c8": "^0.30.1",
+    "babel-plugin-styled-components": "^2.1.1",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
