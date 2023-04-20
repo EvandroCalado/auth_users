@@ -4,37 +4,90 @@ import Wrapper from '../components/Wrapper/Wrapper';
 import { FrontEndRedirect } from '../utils/front-end-redirect';
 import { serverSideRedirect } from '../utils/server-side-redirect';
 import { endpoints } from '../config/endpoints';
-import { mapData } from '../map/mapData';
 import Link from 'next/link';
+import Button from '../components/Button/Button';
+import { Delete } from '@styled-icons/material-outlined';
+import { useEffect, useState } from 'react';
 
 export type StrapiPost = {
   id?: string;
-  title: string;
-  content: string;
+  attributes: {
+    title: string;
+    content: string;
+  };
+};
+
+export type StrapiData = {
+  data: StrapiPost[];
 };
 
 export type PostsProps = {
-  posts?: StrapiPost[];
+  posts?: StrapiData;
 };
 
-const Posts = ({ posts = [] }: PostsProps) => {
+const Posts = ({ posts: { data = [] } }: PostsProps) => {
   const { data: session, status } = useSession();
+  const [statePosts, setStatePosts] = useState(data);
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    setStatePosts(data);
+  }, [data]);
 
   if (status === 'loading' && !session) {
     return FrontEndRedirect();
   }
 
-  const postsData = mapData(posts);
+  const handleDelete = async (id: string) => {
+    setDeleting(true);
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}${endpoints.deletePost}${id}`,
+        {
+          method: 'DELETE',
+          headers: {
+            Authorization: `Bearer ${session.user.jwt}`,
+            'Content-Type': 'application/json',
+          },
+        },
+      );
+
+      const deletedPost = await res.json();
+
+      setStatePosts((data) => data.filter((post) => post.id !== id));
+
+      console.log(deletedPost);
+    } catch (error) {
+      console.log(error);
+    }
+
+    setDeleting(false);
+  };
 
   return (
     <Wrapper>
       <h2>Olá {session?.user?.name || 'Seja bem vindo'}</h2>
 
       {session &&
-        postsData.map((post) => {
+        statePosts.map((post) => {
           return (
-            <p key={post.id}>
-              <Link href={`/${post.id}`}>{post.title}</Link>
+            <p
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+              }}
+              key={post.id}
+            >
+              <Link href={`/${post.id}`}>{post.attributes.title}</Link>
+              <Button
+                onClick={() => handleDelete(post.id)}
+                color="secondary"
+                icon={<Delete />}
+                disabled={deleting}
+              >
+                Excluir
+              </Button>
             </p>
           );
         })}
