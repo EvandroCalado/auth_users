@@ -1,0 +1,169 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`to match snapshot 1`] = `
+.c0 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 3.2rem;
+}
+
+.c1 {
+  position: relative;
+  width: 100%;
+  max-width: 80rem;
+}
+
+.c1 > svg {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0,-50%);
+  -ms-transform: translate(0,-50%);
+  transform: translate(0,-50%);
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: rgb(141,141,144);
+  z-index: 1;
+}
+
+.c1 *:focus ~ svg {
+  color: rgb(43,38,178);
+}
+
+.c1 *:disabled ~ svg {
+  color: rgb(201,201,203);
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  border: 1px solid rgb(201,201,203);
+  width: 100%;
+  height: 100%;
+  font-size: 1.8rem;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  padding: 1.6rem 1.2rem;
+  background: rgb(250,250,253);
+  padding-right: 3.7rem;
+  border-radius: 0.4rem;
+  outline: none;
+}
+
+.c2::-webkit-input-placeholder {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c2::-moz-placeholder {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c2:-ms-input-placeholder {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c2::placeholder {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c2:focus {
+  border: 0.1rem solid rgb(43,38,178);
+  box-shadow: 0 0 0.2rem 0 rgb(43,38,178);
+  background: rgb(250,250,253);
+}
+
+.c2:focus + .c3,
+.c2:not(:placeholder-shown) + .c3,
+.c2:-webkit-autofill + .c3 {
+  top: 0;
+  -webkit-transform: translate(0,-50%);
+  -ms-transform: translate(0,-50%);
+  transform: translate(0,-50%);
+  font-size: 1.6rem;
+  color: rgb(250,250,253);
+  background: rgb(43,38,178);
+  -webkit-filter: none;
+  filter: none;
+}
+
+.c2:disabled {
+  background: rgb(241,241,243);
+  color: rgb(161,161,164);
+}
+
+.c2:disabled + .c3 {
+  background: rgb(161,161,164);
+  color: rgb(221,221,223);
+}
+
+.c4 {
+  display: inline;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0,-50%);
+  -ms-transform: translate(0,-50%);
+  transform: translate(0,-50%);
+  left: 1.2rem;
+  font-size: 1.6rem;
+  height: 1.6rem;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  background: rgb(250,250,253);
+  padding: 0.5rem 1rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  line-height: 1;
+  z-index: 1;
+  color: rgb(141,141,144);
+  border-radius: 0.4rem;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <input
+        class="c2"
+        id="search"
+        name="search"
+        placeholder="Search"
+        type="text"
+        value=""
+      />
+      <label
+        class="c3 c4"
+        for="search"
+      >
+        Search
+      </label>
+    </div>
+  </div>
+</div>
+`;
