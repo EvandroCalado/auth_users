@@ -5,7 +5,7 @@ export const endpoints = {
   resetPassword: '/api/auth/reset-password',
   getPosts: '/api/posts',
   getOnePost: '/api/posts/',
-  createPost: '/api/posts',
+  createPost: '/api/posts/',
   updatePost: '/api/posts/',
   deletePost: '/api/posts/',
 };

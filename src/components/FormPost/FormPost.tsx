@@ -37,14 +37,14 @@ const FormPost = ({ post, onSave }: FormPostProps) => {
   return (
     <form onSubmit={handleSubmit}>
       <TextInput
-        name="post-title"
-        label="post-title"
+        name="Title"
+        label="Title"
         value={newTitle}
         onInputChange={(value) => setNewTitle(value)}
       />
       <TextInput
-        name="post-content"
-        label="post-content"
+        name="Content"
+        label="Content"
         value={newContent}
         onInputChange={(value) => setNewContent(value)}
         as="textarea"
