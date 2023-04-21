@@ -6,6 +6,7 @@ import { getSession, useSession } from 'next-auth/react';
 import { endpoints } from '../config/endpoints';
 import { serverSideRedirect } from '../utils/server-side-redirect';
 import { StrapiPost } from './posts';
+import { useRouter } from 'next/router';
 
 export type PostProps = {
   post: StrapiPost;
@@ -13,6 +14,7 @@ export type PostProps = {
 
 const Post = ({ post }: PostProps) => {
   const { data: session, status } = useSession();
+  const router = useRouter();
 
   if (status === 'loading' && !session) {
     return FrontEndRedirect();
@@ -20,7 +22,7 @@ const Post = ({ post }: PostProps) => {
 
   const handleSave = async ({ id, title, content }) => {
     try {
-      await fetch(
+      const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}${endpoints.updatePost}${id}`,
         {
           method: 'PUT',
@@ -37,6 +39,12 @@ const Post = ({ post }: PostProps) => {
           }),
         },
       );
+
+      const updatedPost = await res.json();
+
+      if (updatedPost) {
+        router.push('/posts');
+      }
     } catch (error) {
       console.log(error);
     }
@@ -87,8 +95,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     console.log(error);
     serverSideRedirect(ctx);
   }
-
-  return {
-    props: {},
-  };
 };
